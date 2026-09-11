@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const usageSchema = new mongoose.Schema({
   userId: {
@@ -6,29 +6,32 @@ const usageSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
-  resourceId: {
+  resourceId:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Resource",
     required: true
   },
-  startTime: {
+
+  startTime:{
     type: Date,
     required: true
   },
-  endTime: {
+  endTime:{
     type: Date
   },
-  duration: {
+  duration:{
     type: Number
   },
-  bill: {
+
+  bill:{
     type: Number
   },
-  status: {
+
+  status:{
     type: String,
     enum: ["ACTIVE", "COMPLETED"],
     default: "ACTIVE"
   }
 });
 
-module.exports =mongoose.model("Usage", usageSchema);
+module.exports = mongoose.model("Usage", usageSchema);
