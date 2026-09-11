@@ -13,14 +13,13 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
 mongoose
-.connect(`mongodb+srv://devNish17:na!nskh!atnat@nishant117.72wnkac.mongodb.net/billing`)
+.connect(process.env.URL)
 .then(() => {
     console.log("Database connected");
 
-    app.listen(5000, () => {
-      console.log("Server running on port 5000");
+    app.listen(process.env.PORT, () => {
+      console.log(`Server running on port ${process.env.PORT}`);
     });
   })
   .catch((error) => {

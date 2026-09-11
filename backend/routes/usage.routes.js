@@ -7,4 +7,4 @@ router.post("/stop", stopUsage);
 router.get("/active", getActiveUsages);
 router.get("/history", getUsageHistory);
 
-module.exports = router;
+module.exports = router; 
