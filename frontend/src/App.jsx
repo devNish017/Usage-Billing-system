@@ -1,7 +1,7 @@
 
 
 import './App.css'
-import UserForm from './components/userForm'
+import UserForm from './components/UserForm'
 import UserList from './components/UserList'
 import ResourceForm from './components/ResouceForm'
 import ResourceList from './components/ResourceList'
