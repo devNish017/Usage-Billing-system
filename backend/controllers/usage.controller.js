@@ -59,32 +59,28 @@ const startUsage = async (req, res) => {
   }
 };
 
-
 const stopUsage = async (req, res) => {
   try {
-    const { usageId } = req.body;
-
+    const { usageId } =req.body;
     if (!usageId) {
       return res.status(400).json({
         message: "usageId is required"
       });
     }
-
     const usage = await Usage.findById(usageId);
-
     if (!usage) {
       return res.status(404).json({
         message: "Usage not found"
       });
     }
 
-    if (usage.status === "COMPLETED") {
+    if (usage.status ==="COMPLETED") {
       return res.status(400).json({
         message: "Usage is already completed"
       });
     }
 
-    const resource = await Resource.findById(usage.resourceId);
+    const resource =await Resource.findById(usage.resourceId);
 
     if (!resource) {
       return res.status(404).json({
@@ -92,12 +88,11 @@ const stopUsage = async (req, res) => {
       });
     }
 
-    const endTime = new Date();
+    const endTime =new Date();
 
-    const durationInMilliseconds = endTime - usage.startTime;
+    const durationInMilliseconds =endTime - usage.startTime;
 
-    const durationInHours =
-      durationInMilliseconds / (1000 * 60 * 60);
+    const durationInHours = durationInMilliseconds /(1000 * 60 * 60);
 
     const billableHours = Math.ceil(durationInHours);
 
@@ -131,7 +126,7 @@ const stopUsage = async (req, res) => {
   }
 };
 
-const getActiveUsages = async (req, res) => {
+const getActiveUsages =async (req, res) => {
   try {
     const usages = await Usage.find({
       status: "ACTIVE"
@@ -149,7 +144,7 @@ const getActiveUsages = async (req, res) => {
   }
 };
 
-const getUsageHistory = async (req, res) => {
+const getUsageHistory =async (req, res) => {
   try {
     const usages = await Usage.find();
 
@@ -165,4 +160,4 @@ const getUsageHistory = async (req, res) => {
   }
 };
 
-module.exports = {startUsage, stopUsage,getActiveUsages, getUsageHistory};
+module.exports = {startUsage,stopUsage,getActiveUsages, getUsageHistory};

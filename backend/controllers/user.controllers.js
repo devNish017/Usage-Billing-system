@@ -22,12 +22,12 @@ const createUser =async(req,res)=>{
 
 const getUsers = async (req, res) => {
   try {
-    const users = await User.find();
+    const users =await User.find();
 
     res.status(200).json({
       users
     });
-  } catch (error) {
+  } catch (error){
     res.status(500).json({
       message: "Failed to fetch users",
       error: error.message
@@ -35,4 +35,4 @@ const getUsers = async (req, res) => {
   }
 };
 
-module.exports = {createUser, getUsers};
+module.exports = {createUser,getUsers};
