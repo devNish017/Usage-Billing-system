@@ -29,6 +29,21 @@ const createResource = async (req, res) => {
   }
 };
 
+const getResources = async (req, res) => {
+  try {
+    const resources = await Resource.find();
+
+    res.status(200).json({
+      resources
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to fetch resources",
+      error: error.message
+    });
+  }
+};
+
 module.exports = {
-  createResource
+  createResource, getResources
 };
