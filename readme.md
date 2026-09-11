@@ -2,6 +2,8 @@
 
 The frontend UI was developed with the help of AI assistance. I mainly focused on the application structure, API integration, backend logic, database design, usage tracking and billing implementation.
 
+live link - https://frontend-ten-sandy-fpzj9bmxdn.vercel.app/
+
 # Usage & Billing System
 
 A simple resource usage and billing system built using **React, Node.js, Express.js and MongoDB**.
